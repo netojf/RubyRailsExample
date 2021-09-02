@@ -8,18 +8,20 @@
 <div class="typewriter-container">
 <% if Current.user %>
       <p class="static-typed-text"><span class="typed-text">Bem Vindo! <%= Current.user.email %></p>
-      </br>
-      <%= link_to 'Edit Password', edit_password_path %>
-      <%= button_to 'Logout', logout_path, method: :delete %>
 <% else %>
       <p class="static-typed-text"><span class="typed-text">Bem Vindo!|Aguardando Atividade...</p>
-      </br>
-
-      <%= link_to 'Sign Up', sign_up_path %>
-      or
-      <%= link_to 'Login', sign_in_path %>
 <% end %>
 </div>
+
+<% if Current.user %>
+<%= link_to 'Edit Password', edit_password_path, class:"btn btn-link" %>
+<%= button_to 'Logout', logout_path, method: :delete, class:"btn btn-link" %>
+<% else %>
+ <%= link_to 'Sign Up', sign_up_path, class:"btn btn-link" %>
+  or
+  <%= link_to 'Login', sign_in_path, class:"btn btn-link"  %>
+<% end %>
+
 
   <%= stylesheet_link_tag 'welcome', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_pack_tag 'glitchy', 'data-turbolinks-track': 'reload' %>

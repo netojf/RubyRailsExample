@@ -1,6 +1,27 @@
 class ArticlesController < ApplicationController
     def new
         @article = Article.new
+        puts(@article)
+    end
+
+    def create
+        # byebug
+        @article = Article.new(article_params)
+        byebug
+
+        @article.autor = Autor.find params[:article][:autor]
+        @article.library = Library.find params[:article][:library]
+
+        byebug
+        respond_to do |format|
+            if @article.save
+                format.html { redirect_to @article, notice: "Article was successfully created." }
+                format.json { render :show, status: :created, location: @article }
+            else
+                format.html { render :new, status: :unprocessable_entity }
+                format.json { render json: @article.errors, status: :unprocessable_entity }
+            end 
+        end
     end
     
     def list
@@ -24,5 +45,9 @@ class ArticlesController < ApplicationController
         puts(params)
         @article = Article.find(params[:id])
     end 
-    
+
+    private
+    def article_params
+        params.require(:article).permit(:title, :text, :autor=>[:id,:nil], :library=>[:id, nil])
+    end
 end
