@@ -1,10 +1,13 @@
 Rails.application.routes.draw do
 
-  resources :articles, only: [:list, :new]
+  resources :libraries
+  resources :articles, only: [:list, :new, :show, :delete]
 
   root 'welcome#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
+  post 'delete', to: 'articles#delete', as: 'article_delete'
+  get 'articles', to: 'articles#list', as: 'articles_list'
   get 'sign_up', to: 'registrations#new'
   post 'sign_up', to: 'registrations#create'
   get 'sign_in', to: 'sessions#new'

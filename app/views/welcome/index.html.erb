@@ -1,12 +1,25 @@
-<h1>Something here!</h1>
 
 
-  <% if Current.user %>
-    Logged in as: <%= Current.user.email %><br>
-    <%= link_to 'Edit Password', edit_password_path %>
-    <%= button_to 'Logout', logout_path, method: :delete %>
-    <% else %>
-    <%= link_to 'Sign Up', sign_up_path %>
-    or
-    <%= link_to 'Login', sign_in_path %>
-  <% end %>
+
+  <div class="glitch-container" >
+    <%= image_tag "fingerPrint.png", class:'glitch-img' %>
+  </div>
+
+<div class="typewriter-container">
+<% if Current.user %>
+      <p class="static-typed-text"><span class="typed-text">Bem Vindo! <%= Current.user.email %></p>
+      </br>
+      <%= link_to 'Edit Password', edit_password_path %>
+      <%= button_to 'Logout', logout_path, method: :delete %>
+<% else %>
+      <p class="static-typed-text"><span class="typed-text">Bem Vindo!|Aguardando Atividade...</p>
+      </br>
+
+      <%= link_to 'Sign Up', sign_up_path %>
+      or
+      <%= link_to 'Login', sign_in_path %>
+<% end %>
+</div>
+
+  <%= stylesheet_link_tag 'welcome', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_pack_tag 'glitchy', 'data-turbolinks-track': 'reload' %>

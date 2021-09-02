@@ -1,1 +1,30 @@
 <h1>Hello I am a list</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">title</th>
+      <th scope="col">text</th>
+      <th scope="col">created_at</th>
+      <th scope="col">updated_at</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @articles.each do |article| %>
+        
+        <tr>
+            <th scope="row"> <%= link_to article.id, article_path(id:article.id) %></th>
+            <td> <%= link_to article.title, article_path(id:article.id) %></td>
+            <td><%= link_to article.text, article_path(id:article.id) %></td>
+            <td><%= link_to article.created_at, article_path(id:article.id)  %></td>
+            <td><%= link_to article.updated_at, article_path(id:article.id) %></td>
+            <td><%= link_to 'X', article_delete_path(id:article.id),article_id:article.id, method: :post, style:"display:flex;item-align:center; justify-content:center; text-align:center;font-weight:bold;"%></td>
+
+        </tr>
+    <% end %>
+
+  </tbody>
+</table>
+
+    
