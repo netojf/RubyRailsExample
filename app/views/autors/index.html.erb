@@ -1,1 +1,25 @@
-<h1>Hello I am another list</h1>
+<h1>Authors</h1>
+<%= link_to "create new", new_autor_path, method: :get, class:"btn btn-link my-2"  %>
+<table class="table my-2">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">name</th>
+      <th scope="col">cson</th>
+      <th scope="col">delete?</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% @autors.each do |autor| %>
+        
+        <tr class="clickable-row" data-href=<%= autor_path(id:autor.id) %>>
+            <th scope="row"> <%= autor.id %></th>
+            <td> <%=  autor.name %></td>
+            <td><%=  autor.cson %></td>
+            <td><%= link_to 'X', autor_delete_path(id:autor.id),autor_id:autor.id, method: :post, class:"row-delete-bttn"%></td>
+        </tr>
+    <% end %>
+
+  </tbody>
+</table>

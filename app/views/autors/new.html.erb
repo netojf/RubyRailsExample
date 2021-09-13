@@ -1,0 +1,27 @@
+<%= form_with(model: @autor) do |form| %>
+  <% if @autor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@autor.errors.count, "error") %> prohibited this autor from being saved:</h2>
+
+      <ul>
+        <% @autor.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name, class: "form-label"  %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :cson, class: "form-label"  %>
+    <%= form.text_field :cson, class: "form-control"  %>
+  </div>
+
+  <div class="actions form-group" style="margin: 1em">
+    <%= form.submit "Submit", class: "btn btn-success" %>
+  </div>
+<% end %>

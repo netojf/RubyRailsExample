@@ -33,7 +33,7 @@ body {
 .row-delete-bttn {
     display: flex;
     align-self: center;
-    justify-content: center;
+    justify-self: center;
     text-align: center;
     font-weight: bold;
     text-decoration: none;
