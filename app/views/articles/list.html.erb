@@ -1,6 +1,6 @@
-<h1>Hello I am a list</h1>
-<%= link_to "create new", new_article_path, method: :get, class:"btn btn-link"  %>
-<table class="table">
+<h1>Articles</h1>
+<%= link_to "create new", new_article_path, method: :get, class:"btn btn-link my-2"  %>
+<table class="table my-2">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -8,19 +8,20 @@
       <th scope="col">text</th>
       <th scope="col">created_at</th>
       <th scope="col">updated_at</th>
+      <th scope="col">delete?</th>
     </tr>
   </thead>
   <tbody>
 
     <% @articles.each do |article| %>
         
-        <tr>
-            <th scope="row"> <%= link_to article.id, article_path(id:article.id) %></th>
-            <td> <%= link_to article.title, article_path(id:article.id) %></td>
-            <td><%= link_to article.text, article_path(id:article.id) %></td>
-            <td><%= link_to article.created_at, article_path(id:article.id)  %></td>
-            <td><%= link_to article.updated_at, article_path(id:article.id) %></td>
-            <td><%= link_to 'X', article_delete_path(id:article.id),article_id:article.id, method: :post, style:"display:flex;item-align:center; justify-content:center; text-align:center;font-weight:bold;"%></td>
+        <tr class="clickable-row" data-href=<%= article_path(id:article.id) %>>
+            <th scope="row"> <%= article.id %></th>
+            <td> <%=  article.title %></td>
+            <td><%=  article.text %></td>
+            <td><%=  article.created_at %></td>
+            <td><%=  article.updated_at %></td>
+            <td><%= link_to 'X', article_delete_path(id:article.id),article_id:article.id, method: :post, class:"row-delete-bttn"%></td>
 
         </tr>
     <% end %>

@@ -6,21 +6,23 @@
   </div>
 
 <div class="typewriter-container">
-<% if Current.user %>
-      <p class="static-typed-text"><span class="typed-text">Bem Vindo! <%= Current.user.email %></p>
-<% else %>
-      <p class="static-typed-text"><span class="typed-text">Bem Vindo!|Aguardando Atividade...</p>
-<% end %>
+  <% if Current.user %>
+        <p class="static-typed-text"><span class="typed-text">Bem Vindo! <%= Current.user.email %></p>
+  <% else %>
+        <p class="static-typed-text"><span class="typed-text">Bem Vindo!|Aguardando Atividade...</p>
+  <% end %>
 </div>
 
+<div class="d-flex align-items-center justify-content-start flex-wrap flex-row">
 <% if Current.user %>
 <%= link_to 'Edit Password', edit_password_path, class:"btn btn-link" %>
 <%= button_to 'Logout', logout_path, method: :delete, class:"btn btn-link" %>
 <% else %>
  <%= link_to 'Sign Up', sign_up_path, class:"btn btn-link" %>
-  or
+   <span class="mx-3 fw-bold">or</span> 
   <%= link_to 'Login', sign_in_path, class:"btn btn-link"  %>
 <% end %>
+</div>
 
 
   <%= stylesheet_link_tag 'welcome', media: 'all', 'data-turbolinks-track': 'reload' %>

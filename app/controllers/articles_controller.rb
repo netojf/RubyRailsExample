@@ -7,12 +7,10 @@ class ArticlesController < ApplicationController
     def create
         # byebug
         @article = Article.new(article_params)
-        byebug
 
         @article.autor = Autor.find params[:article][:autor]
         @article.library = Library.find params[:article][:library]
 
-        byebug
         respond_to do |format|
             if @article.save
                 format.html { redirect_to @article, notice: "Article was successfully created." }
@@ -48,6 +46,6 @@ class ArticlesController < ApplicationController
 
     private
     def article_params
-        params.require(:article).permit(:title, :text, :autor=>[:id,:nil], :library=>[:id, nil])
+        params.require(:article).permit(:title, :text)
     end
 end

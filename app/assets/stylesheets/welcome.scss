@@ -86,11 +86,15 @@ div.typewriter-container p.static-typed-text {
 div.typewriter-container p.static-typed-text span.typed-text {
     font-weight: normal;
     color: #5058f4;
+    // color: purple;
+
 }
 
 div.typewriter-container p.static-typed-text span.cursor {
     display: inline-block;
     background-color: #5058f4;
+
+    // background-color: purple;
     margin-left: 0.1rem;
     width: 3px;
     animation: blink 1s infinite;
@@ -102,10 +106,12 @@ div.typewriter-container p.static-typed-text span.cursor.typing {
 
 @keyframes blink {
     0% {
+        // background-color: purple;
         background-color: #5058f4;
     }
 
     49% {
+        // background-color: purple;-
         background-color: #5058f4;
     }
 
@@ -118,6 +124,7 @@ div.typewriter-container p.static-typed-text span.cursor.typing {
     }
 
     100% {
+        // background-color: purple;
         background-color: #5058f4;
     }
 }

@@ -11,3 +11,16 @@ import "channels"
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+document.addEventListener('load',
+    function () {
+        var clickableRows = Array.from(document.getElementsByClassName('clickable-row'));
+        debugger
+        clickableRows.forEach((row) => {
+            row.addEventListener('click', (e) => {
+                debugger
+                window.location = e.target.dataset.href
+            })
+        })
+    }
+)
