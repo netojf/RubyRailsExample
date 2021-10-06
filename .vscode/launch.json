@@ -19,7 +19,7 @@
             "cwd": "${workspaceRoot}",
             "program": "${workspaceRoot}/bin/rails",
             "args": [
-                "server"
+                "server -p 10000"
             ]
         }
     ]
